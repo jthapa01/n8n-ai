@@ -1,0 +1,9 @@
+procs:
+  next:
+    shell: "npm run dev"
+
+  inngest:
+    shell: "npm run inngest:dev"
+
+  studio:
+    shell: "npm run db:studio"
