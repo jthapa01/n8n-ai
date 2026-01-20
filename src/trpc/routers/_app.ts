@@ -7,6 +7,7 @@
 
 import prisma from "@/lib/db";
 import { createTRPCRouter, protectedProcedure } from "../init";
+import { inngest } from "@/inngest/client";
 
 // -----------------------------------------------------------------------------
 // ROOT ROUTER
@@ -27,14 +28,20 @@ export const appRouter = createTRPCRouter({
   // .mutation() = write operation (like POST/PUT/DELETE in REST)
   //
   // The return type is automatically inferred!
-  // Client knows: trpc.getUsers returns Promise<User[]>
+  // Client knows: trpc.getWorkflows returns Promise<Workflow[]>
   // ---------------------------------------------------------------------------
-  getUsers: protectedProcedure.query(({ ctx }) => {
+  getWorkflows: protectedProcedure.query(({ ctx }) => {
     // This runs on the SERVER only
     // Direct database access is safe here
-    return prisma.user.findMany({
-      where: { id: ctx.auth.user.id },
-    });
+    return prisma.workflow.findMany();
+  }),
+  createWorkFlow: protectedProcedure.mutation(async () => {
+    await inngest.send({
+        name: "test/hello.world",
+        data: { text: "test@test.com" },
+    })
+    
+    return { success: true, message: "Inngest event sent." };
   }),
 
   // TODO: Add more procedures here
