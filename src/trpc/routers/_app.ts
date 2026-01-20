@@ -6,7 +6,7 @@
 // =============================================================================
 
 import prisma from "@/lib/db";
-import { baseProcedure, createTRPCRouter } from "../init";
+import { createTRPCRouter, protectedProcedure } from "../init";
 
 // -----------------------------------------------------------------------------
 // ROOT ROUTER
@@ -29,10 +29,12 @@ export const appRouter = createTRPCRouter({
   // The return type is automatically inferred!
   // Client knows: trpc.getUsers returns Promise<User[]>
   // ---------------------------------------------------------------------------
-  getUsers: baseProcedure.query(() => {
+  getUsers: protectedProcedure.query(({ ctx }) => {
     // This runs on the SERVER only
     // Direct database access is safe here
-    return prisma.user.findMany();
+    return prisma.user.findMany({
+      where: { id: ctx.auth.user.id },
+    });
   }),
 
   // TODO: Add more procedures here
