@@ -1,4 +1,3 @@
-import prisma from "@/lib/db";
 import { inngest } from "./client";
 import { gpt4oMini } from "@/lib/ai";
 import { generateText } from "ai";
@@ -11,6 +10,11 @@ export const execute = inngest.createFunction(
       model: gpt4oMini,
       system: "You are a helpful assistant.",
       prompt: "What is 2 + 2?",
+      experimental_telemetry: {
+        isEnabled: true,
+        recordInputs: true,
+        recordOutputs: true,
+      },
     });
 
     return steps;
