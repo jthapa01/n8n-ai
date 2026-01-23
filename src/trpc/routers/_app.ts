@@ -8,7 +8,8 @@
 import prisma from "@/lib/db";
 import { createTRPCRouter, protectedProcedure } from "../init";
 import { inngest } from "@/inngest/client";
-
+import { openai } from "@ai-sdk/openai";
+import { generateText } from "ai";
 // -----------------------------------------------------------------------------
 // ROOT ROUTER
 // -----------------------------------------------------------------------------
@@ -30,6 +31,12 @@ export const appRouter = createTRPCRouter({
   // The return type is automatically inferred!
   // Client knows: trpc.getWorkflows returns Promise<Workflow[]>
   // ---------------------------------------------------------------------------
+  testAi: protectedProcedure.mutation(async () => {
+    await inngest.send({
+      name: "execute/ai",
+    });
+    return { success: true, message: "Job queued" }
+  }),
   getWorkflows: protectedProcedure.query(({ ctx }) => {
     // This runs on the SERVER only
     // Direct database access is safe here
@@ -37,10 +44,10 @@ export const appRouter = createTRPCRouter({
   }),
   createWorkFlow: protectedProcedure.mutation(async () => {
     await inngest.send({
-        name: "test/hello.world",
-        data: { text: "test@test.com" },
-    })
-    
+      name: "test/hello.world",
+      data: { text: "test@test.com" },
+    });
+
     return { success: true, message: "Inngest event sent." };
   }),
 
