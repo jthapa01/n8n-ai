@@ -14,7 +14,8 @@
 import { betterAuth } from "better-auth";
 import { prisma } from "./db";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-
+import { checkout, polar, portal } from "@polar-sh/better-auth";
+import { polarClient } from "./polar";
 // -----------------------------------------------------------------------------
 // AUTH INSTANCE
 // -----------------------------------------------------------------------------
@@ -59,6 +60,25 @@ export const auth = betterAuth({
     autoSignIn: true, // Automatically create session after registration
     // (user doesn't need to login again after signup)
   },
+  plugins: [
+    polar({
+      client: polarClient,
+      createCustomerOnSignUp: true,
+      use: [
+        checkout({
+          products: [
+            {
+              productId: "235df4d8-8384-4293-a57f-b8975f2470c0",
+              slug: "Nodebase-Pro"
+            }
+          ],
+          successUrl: process.env.POLAR_SUCCESS_URL,
+          authenticatedUsersOnly: true,
+        }),
+        portal(),
+      ],
+    })
+  ]
 
   // ---------------------------------------------------------------------------
   // OPTIONAL: Add OAuth providers here

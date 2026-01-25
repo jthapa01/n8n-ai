@@ -15,6 +15,7 @@
 // =============================================================================
 
 import { createAuthClient } from "better-auth/react";
+import { polarClient } from "@polar-sh/better-auth/client";
 
 // -----------------------------------------------------------------------------
 // AUTH CLIENT INSTANCE
@@ -28,6 +29,8 @@ import { createAuthClient } from "better-auth/react";
 // authClient.signUp.email({ email, password, name }) - Register new user
 // authClient.signOut()                             - Logout (clears session)
 // authClient.useSession()                          - React hook for session
+// authClient.checkout({ slug })                    - Polar checkout for products
+// authClient.customer.portal()                     - Polar customer billing portal
 //
 // CALLBACK OPTIONS:
 // -----------------
@@ -43,4 +46,6 @@ import { createAuthClient } from "better-auth/react";
 //   const { data: session, isPending } = authClient.useSession();
 //   if (session) { /* user is logged in */ }
 // -----------------------------------------------------------------------------
-export const authClient = createAuthClient();
+export const authClient = createAuthClient({
+  plugins: [polarClient()],
+});

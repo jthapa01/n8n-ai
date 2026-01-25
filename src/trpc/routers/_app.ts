@@ -8,8 +8,6 @@
 import prisma from "@/lib/db";
 import { createTRPCRouter, protectedProcedure } from "../init";
 import { inngest } from "@/inngest/client";
-import { openai } from "@ai-sdk/openai";
-import { generateText } from "ai";
 // -----------------------------------------------------------------------------
 // ROOT ROUTER
 // -----------------------------------------------------------------------------
