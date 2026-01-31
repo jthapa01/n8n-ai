@@ -12,7 +12,7 @@ import {
   defaultShouldDehydrateQuery,
   QueryClient,
 } from "@tanstack/react-query";
-// import superjson from 'superjson';
+import superjson from "superjson";
 
 // -----------------------------------------------------------------------------
 // QUERY CLIENT FACTORY
@@ -38,7 +38,7 @@ export function makeQueryClient() {
       // "Dehydrate" = serialize query cache to JSON for transfer
       // This happens on the server to send prefetched data to the client
       dehydrate: {
-        // serializeData: superjson.serialize, // Uncomment for Date/Map/Set support
+        serializeData: superjson.serialize,
 
         // Which queries should be sent to the client?
         // Default: only successful queries
@@ -54,7 +54,7 @@ export function makeQueryClient() {
       // "Hydrate" = deserialize JSON back into query cache
       // This populates the client's cache with server-fetched data
       hydrate: {
-        // deserializeData: superjson.deserialize, // Match dehydrate serializer
+        deserializeData: superjson.deserialize,
       },
     },
   });

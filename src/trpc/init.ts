@@ -11,6 +11,7 @@ import { polarClient } from '@/lib/polar';
 import { initTRPC, TRPCError } from "@trpc/server";
 import { headers } from "next/headers";
 import { cache } from "react";
+import superjson from "superjson";
 
 // -----------------------------------------------------------------------------
 // CONTEXT FACTORY
@@ -41,7 +42,7 @@ export const createTRPCContext = cache(async () => {
 // 2. Better to export specific, named utilities
 // -----------------------------------------------------------------------------
 const t = initTRPC.create({
-  // transformer: superjson, // Uncomment to serialize Dates, Maps, Sets, etc.
+  transformer: superjson,
 });
 
 // -----------------------------------------------------------------------------
