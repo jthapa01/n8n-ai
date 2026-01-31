@@ -1,7 +1,0 @@
-ERROR [portable_pty::win::psuedocon] CreateProcessW `"\"C:\\Program Files\\nodejs\\npm\" run db:studio\0"` in cwd `Some("C:\\Playground\\n8n\\n8n-ai\0")` failed: %1 is not a valid Win32 application. (os error 193)
-ERROR [portable_pty::win::psuedocon] CreateProcessW `"\"C:\\Program Files\\nodejs\\npm\" run dev\0"` in cwd `Some("C:\\Playground\\n8n\\n8n-ai\0")` failed: %1 is not a valid Win32 application. (os error 193)
-ERROR [portable_pty::win::psuedocon] CreateProcessW `"\"C:\\Program Files\\nodejs\\npm\" run inngest:dev\0"` in cwd `Some("C:\\Playground\\n8n\\n8n-ai\0")` failed: %1 is not a valid Win32 application. (os error 193)
-ERROR [portable_pty::win::psuedocon] CreateProcessW `"\"C:\\Program Files\\nodejs\\npm\" run db:studio\0"` in cwd `Some("C:\\Playground\\n8n\\n8n-ai\0")` failed: %1 is not a valid Win32 application. (os error 193)
-ERROR [portable_pty::win::psuedocon] CreateProcessW `"\"C:\\Program Files\\nodejs\\npm\" run inngest:dev\0"` in cwd `Some("C:\\Playground\\n8n\\n8n-ai\0")` failed: %1 is not a valid Win32 application. (os error 193)
-ERROR [portable_pty::win::psuedocon] CreateProcessW `"\"C:\\Program Files\\nodejs\\npm\" run dev\0"` in cwd `Some("C:\\Playground\\n8n\\n8n-ai\0")` failed: %1 is not a valid Win32 application. (os error 193)
-ERROR [lib::error] Error: channel closed
