@@ -1,6 +1,6 @@
-import { 
-  Editor, 
-  EditorError, 
+import {
+  Editor,
+  EditorError,
   EditorLoading
 } from "@/features/editor/components/editor";
 import { EditorHeader } from "@/features/editor/components/editor-header";
