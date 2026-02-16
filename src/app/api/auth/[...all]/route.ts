@@ -35,4 +35,5 @@ import { toNextJsHandler } from "better-auth/next-js";
 // All auth logic is handled by better-auth - this file just bridges
 // the library to Next.js's routing system.
 // -----------------------------------------------------------------------------
+export const dynamic = "force-dynamic";
 export const { POST, GET } = toNextJsHandler(auth);

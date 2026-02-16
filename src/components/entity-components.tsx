@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 import { Empty, EmptyContent, EmptyDescription, EmptyTitle, EmptyHeader, EmptyMedia } from "./ui/empty";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 type EntityHeaderProps = {
     title: string;
@@ -237,7 +237,7 @@ export const EntityItem = ({ href, title, subtitle, image, actions, onRemove, is
 
     return (
         <Link href={href} prefetch>
-            <Card 
+            <Card
                 className={cn(
                     "p-4 shadow-none hover:shadow cursor-pointer",
                     isRemoving && "opacity-50 cursor-not-allowed",

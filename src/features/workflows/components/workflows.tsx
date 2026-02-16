@@ -49,7 +49,7 @@ export const WorkflowsList = () => {
 export const WorkflowsHeader = ({ disabled }: { disabled?: boolean }) => {
     const router = useRouter();
     const createWorkflow = useCreateWorkflow();
-    const { handleError, UpgradeModalComponent } = useUpgradeModal();
+    const { handleError, upgradeModalComponent } = useUpgradeModal();
 
     const handleCreate = () => {
         createWorkflow.mutate(undefined, {
@@ -64,7 +64,7 @@ export const WorkflowsHeader = ({ disabled }: { disabled?: boolean }) => {
 
     return (
         <>
-            {UpgradeModalComponent}
+            {upgradeModalComponent}
             <EntityHeader
                 title="Workflows"
                 description="Create and Manage your workflows"
@@ -114,7 +114,7 @@ export const WorkflowsError = () => {
 export const WorkflowsEmpty = () => {
     const router = useRouter();
     const createWorkflow = useCreateWorkflow();
-    const { handleError, UpgradeModalComponent } = useUpgradeModal();
+    const { handleError, upgradeModalComponent } = useUpgradeModal();
 
     const handleCreate = () => {
         createWorkflow.mutate(undefined, {
@@ -129,7 +129,7 @@ export const WorkflowsEmpty = () => {
 
     return (
         <>
-            {UpgradeModalComponent}
+            {upgradeModalComponent}
             <EmptyView
                 onNew={handleCreate}
                 message="You haven't created any workflows yet. Get started by creating your first workflow"

@@ -69,31 +69,25 @@ export const auth = betterAuth({
           products: [
             {
               productId: "235df4d8-8384-4293-a57f-b8975f2470c0",
-              slug: "Nodebase-Pro"
-            }
+              slug: "Nodebase-Pro",
+            },
           ],
           successUrl: process.env.POLAR_SUCCESS_URL,
           authenticatedUsersOnly: true,
         }),
         portal(),
       ],
-    })
-  ]
+    }),
+  ],
 
-  // ---------------------------------------------------------------------------
-  // OPTIONAL: Add OAuth providers here
-  // ---------------------------------------------------------------------------
-  // To enable GitHub/Google login, add:
-  //
-  // socialProviders: {
-  //   github: {
-  //     clientId: process.env.GITHUB_CLIENT_ID!,
-  //     clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-  //   },
-  //   google: {
-  //     clientId: process.env.GOOGLE_CLIENT_ID!,
-  //     clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-  //   },
-  // },
-  // ---------------------------------------------------------------------------
+  socialProviders: {
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+    },
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    },
+  },
 });

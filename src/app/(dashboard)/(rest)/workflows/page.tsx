@@ -3,6 +3,8 @@ import { prefetchWorkflows } from "@/features/workflows/server/prefetch";
 import { workflowsParamsLoader } from "@/features/workflows/server/params-loader";
 import { requireAuth } from "@/lib/auth-utils";
 import { HydrateClient } from "@/trpc/server";
+
+export const dynamic = "force-dynamic";
 import { SearchParams } from "nuqs";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";

@@ -42,4 +42,5 @@ const handler = (req: Request) =>
 // - GET for queries (read operations) - cacheable by CDN
 // - POST for mutations (write operations) and batched requests
 // -----------------------------------------------------------------------------
+export const dynamic = "force-dynamic";
 export { handler as GET, handler as POST };
